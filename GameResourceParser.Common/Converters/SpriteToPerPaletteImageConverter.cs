@@ -40,9 +40,9 @@ namespace AllodsParser
 
                 var newImage = new Image<Rgba32>(toConvert.Levels[i].Sprite.Count * newWidth, newHeight);
 
-                for (int j = 0; j < toConvert.Levels[j].Sprite.Count; j++)
+                for (int j = 0; j < toConvert.Levels[i].Sprite.Count; j++)
                 {
-                    newImage.Mutate(a => a.DrawImage(toConvert.Levels[j].Sprite[j], new Point(newWidth * j, 0), 1));
+                    newImage.Mutate(a => a.DrawImage(toConvert.Levels[i].Sprite[j], new Point(newWidth * j, 0), 1));
                 }
 
                 yield return new ImageFile

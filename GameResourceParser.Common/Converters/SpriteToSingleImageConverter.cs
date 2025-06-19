@@ -27,8 +27,14 @@ namespace AllodsParser
 
         private IEnumerable<ImageFile> ConvertFile(SpriteFile toConvert, List<BaseFile> files)
         {
-            var newWidth = toConvert.Levels.Max(a => a.Sprite.Max(b => b.Width));
-            var newHeight = toConvert.Levels.Max(a => a.Sprite.Max(b => b.Height));
+            if (toConvert.Levels.SelectMany(a => a.Sprite).Count() == 0)
+            {
+                Console.Error.WriteLine($"Sprite {toConvert.relativeFilePath} does not have sprites converted.");
+                yield break;
+            }
+
+            var newWidth = toConvert.Levels.SelectMany(a => a.Sprite).Max(a => a.Width);
+            var newHeight = toConvert.Levels.SelectMany(a => a.Sprite).Max(a => a.Height);
 
             var newColumns = toConvert.Levels.Max(a => a.Sprite.Count);
             var newRows = toConvert.Levels.Count();
@@ -40,7 +46,7 @@ namespace AllodsParser
             {
                 for (var j = 0; j < s.Sprite.Count; j++)
                 {
-                    newImage.Mutate(a => a.DrawImage(s.Sprite[i], new Point(newWidth * j, newHeight * i), 1));
+                    newImage.Mutate(a => a.DrawImage(s.Sprite[j], new Point(newWidth * j, newHeight * i), 1));
                 }
                 i++;
             }
