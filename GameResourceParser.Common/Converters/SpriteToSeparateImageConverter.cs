@@ -4,7 +4,7 @@ namespace AllodsParser
     {
         public override void Convert(List<BaseFile> files)
         {
-            if (GameParserConfigurator.SpriteMergeVariant != GameParserConfigurator.SpriteMergerFlags.EachSprite)
+            if (GameParserConfigurator.SpriteOutput != GameParserConfigurator.SpriteOutputFormat.EachSprite)
             {
                 return;
             }
@@ -25,14 +25,14 @@ namespace AllodsParser
         {
             for (int i = 0; i < toConvert.Levels.Count; i++)
             {
-                for (int j = 0; j < toConvert.Levels[i].Sprite.Count; j++)
+                for (int j = 0; j < toConvert.Levels[i].AllSprites.Count; j++)
                 {
-                    var newImage = toConvert.Levels[i].Sprite[j];
+                    var newImage = toConvert.Levels[i].AllSprites[j];
                     yield return new ImageFile
                     {
                         Image = newImage,
                         relativeFileExtension = ".png",
-                        relativeFileDirectory = toConvert.relativeFileDirectory,
+                        relativeFileDirectory = Path.Combine(toConvert.relativeFileDirectory, toConvert.relativeFileName),
                         relativeFileName = toConvert.relativeFileName + "." + i + "." + j
                     };
                 }

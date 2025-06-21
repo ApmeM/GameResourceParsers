@@ -21,11 +21,12 @@ namespace AllodsParser
 
         private IEnumerable<TmxFile> ConvertFile(AlmFile toConvert, List<BaseFile> files)
         {
-            var pngExt = GameParserConfigurator.SpriteMergeVariant switch
+            var pngExt = GameParserConfigurator.SpriteOutput switch
             {
-                GameParserConfigurator.SpriteMergerFlags.SingleSprite => "",
-                GameParserConfigurator.SpriteMergerFlags.PerLevelSprite => ".0",
-                GameParserConfigurator.SpriteMergerFlags.EachSprite => "{pngExt}",
+                GameParserConfigurator.SpriteOutputFormat.SingleSprite => "",
+                GameParserConfigurator.SpriteOutputFormat.PerLevelSprite => ".0",
+                GameParserConfigurator.SpriteOutputFormat.EachSprite => "{pngExt}",
+                GameParserConfigurator.SpriteOutputFormat.GodotSprite => "{pngExt}",
                 _ => throw new NotImplementedException()
             };
 

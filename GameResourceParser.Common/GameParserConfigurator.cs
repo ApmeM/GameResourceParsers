@@ -2,13 +2,14 @@ namespace AllodsParser
 {
     public static class GameParserConfigurator
     {
-        public enum SpriteMergerFlags
+        public enum SpriteOutputFormat
         {
             SingleSprite,
             PerLevelSprite,
-            EachSprite
+            EachSprite,
+            GodotSprite
         }
 
-        public static SpriteMergerFlags SpriteMergeVariant = SpriteMergerFlags.SingleSprite;
+        public static SpriteOutputFormat SpriteOutput = SpriteOutputFormat.GodotSprite;
     }
 }

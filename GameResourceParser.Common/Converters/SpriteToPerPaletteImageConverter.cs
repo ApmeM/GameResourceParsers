@@ -8,7 +8,7 @@ namespace AllodsParser
     {
         public override void Convert(List<BaseFile> files)
         {
-            if (GameParserConfigurator.SpriteMergeVariant != GameParserConfigurator.SpriteMergerFlags.PerLevelSprite)
+            if (GameParserConfigurator.SpriteOutput != GameParserConfigurator.SpriteOutputFormat.PerLevelSprite)
             {
                 return;
             }
@@ -29,27 +29,27 @@ namespace AllodsParser
         {
             for (var i = 0; i < toConvert.Levels.Count; i++)
             {
-                if (toConvert.Levels[i].Sprite.Count == 0)
+                if (toConvert.Levels[i].AllSprites.Count == 0)
                 {
                     Console.Error.WriteLine($"Sprite {toConvert.relativeFilePath} does not have sprites converted.");
                     yield break;
                 }
 
-                var newWidth = toConvert.Levels[i].Sprite.Max(a => a.Width);
-                var newHeight = toConvert.Levels[i].Sprite.Max(a => a.Height);
+                var newWidth = toConvert.Levels[i].AllSprites.Max(a => a.Width);
+                var newHeight = toConvert.Levels[i].AllSprites.Max(a => a.Height);
 
-                var newImage = new Image<Rgba32>(toConvert.Levels[i].Sprite.Count * newWidth, newHeight);
+                var newImage = new Image<Rgba32>(toConvert.Levels[i].AllSprites.Count * newWidth, newHeight);
 
-                for (int j = 0; j < toConvert.Levels[i].Sprite.Count; j++)
+                for (int j = 0; j < toConvert.Levels[i].AllSprites.Count; j++)
                 {
-                    newImage.Mutate(a => a.DrawImage(toConvert.Levels[i].Sprite[j], new Point(newWidth * j, 0), 1));
+                    newImage.Mutate(a => a.DrawImage(toConvert.Levels[i].AllSprites[j], new Point(newWidth * j, 0), 1));
                 }
 
                 yield return new ImageFile
                 {
                     Image = newImage,
                     relativeFileExtension = ".png",
-                    relativeFileDirectory = toConvert.relativeFileDirectory,
+                    relativeFileDirectory = Path.Combine(toConvert.relativeFileDirectory, toConvert.relativeFileName),
                     relativeFileName = toConvert.relativeFileName + "." + i
                 };
             }

@@ -27,6 +27,7 @@
             new SpriteToSeparateImageConverter(),
             new SpriteToPerLevelImageConverter(),
             new SpriteToSingleImageConverter(),
+            new SpriteToGodotImageConverter(),
             new AlmToTmxConverter(),
         };
     }
