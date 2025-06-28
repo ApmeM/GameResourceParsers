@@ -15,7 +15,7 @@ namespace AllodsParser
 
             var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
 
-            oldFiles.ForEach(f => files.Remove(f));
+            // oldFiles.ForEach(f => files.Remove(f));
             newFiles.ForEach(f => files.Add(f));
         }
 
@@ -75,6 +75,7 @@ namespace AllodsParser
                             ShootOffset = GetIntArray(value, "ShootOffset"),
                             InfoPicture = GetString(value, "InfoPicture"),
                             InMapEditor = GetInt(value, "InMapEditor") == 1,
+                            Flip = GetInt(value, "Flip") == 1,
                         };
                     })
                     .ToList(),
