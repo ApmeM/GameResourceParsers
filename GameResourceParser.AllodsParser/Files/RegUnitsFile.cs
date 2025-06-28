@@ -37,6 +37,7 @@ namespace AllodsParser
             public int[] ShootOffset { get; internal set; }
             public string InfoPicture { get; internal set; }
             public bool InMapEditor { get; internal set; }
+            public bool Flip { get; internal set; }
         }
 
         public List<UnitFileContent> Units;

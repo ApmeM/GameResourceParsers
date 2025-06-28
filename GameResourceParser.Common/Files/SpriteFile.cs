@@ -8,6 +8,7 @@ public class SpriteFile : BaseFile
     {
         public List<Image<Rgba32>> AllSprites => StayAll.Concat(MoveAll).Concat(AttackAll).Concat(DieAll).ToList();
 
+        public float StayLength;
         public List<Image<Rgba32>> StayLeft = new List<Image<Rgba32>>();
         public List<Image<Rgba32>> StayTopLeft = new List<Image<Rgba32>>();
         public List<Image<Rgba32>> StayBottomLeft = new List<Image<Rgba32>>();
@@ -26,6 +27,7 @@ public class SpriteFile : BaseFile
             .Concat(StayBottomRight)
             .ToList();
 
+        public float MoveLength;
         public List<Image<Rgba32>> MoveLeft = new List<Image<Rgba32>>();
         public List<Image<Rgba32>> MoveTopLeft = new List<Image<Rgba32>>();
         public List<Image<Rgba32>> MoveBottomLeft = new List<Image<Rgba32>>();
@@ -44,6 +46,8 @@ public class SpriteFile : BaseFile
             .Concat(MoveBottomRight)
             .ToList();
 
+        public float HitDelay;
+        public float AttackLength;
         public List<Image<Rgba32>> AttackLeft = new List<Image<Rgba32>>();
         public List<Image<Rgba32>> AttackTopLeft = new List<Image<Rgba32>>();
         public List<Image<Rgba32>> AttackBottomLeft = new List<Image<Rgba32>>();
@@ -62,6 +66,7 @@ public class SpriteFile : BaseFile
             .Concat(AttackBottomRight)
             .ToList();
 
+        public float DieFPS = 5;
         public List<Image<Rgba32>> DieLeft = new List<Image<Rgba32>>();
         public List<Image<Rgba32>> DieTopLeft = new List<Image<Rgba32>>();
         public List<Image<Rgba32>> DieBottomLeft = new List<Image<Rgba32>>();
