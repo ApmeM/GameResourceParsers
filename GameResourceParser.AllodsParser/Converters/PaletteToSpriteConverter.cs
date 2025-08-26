@@ -4,6 +4,9 @@ using SixLabors.ImageSharp.Processing;
 
 namespace AllodsParser
 {
+    /// <summary>
+    /// Final converter of allods files to common files that are available for save to other formats like godot, tmx, etc.
+    /// </summary>
     public class PaletteToSpriteConverter : BaseFileConverter
     {
         public override void Convert(List<BaseFile> files)
@@ -23,7 +26,8 @@ namespace AllodsParser
         private IEnumerable<SpriteFile> ConvertFile(SpritesWithPalettesFile toConvert, List<BaseFile> files)
         {
             var units = files.OfType<RegUnitsFile>().First();
-            var unit = units.Units.FirstOrDefault(a => toConvert.relativeFilePath.Contains(a.File, StringComparison.InvariantCultureIgnoreCase));
+
+            var unit = units.Units.FirstOrDefault(a => toConvert.relativeFilePath.Replace("heroes", "humans").Contains(a.File, StringComparison.InvariantCultureIgnoreCase));
 
             var path = toConvert.relativeFileDirectory.Split("/");
 

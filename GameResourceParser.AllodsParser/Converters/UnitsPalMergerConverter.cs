@@ -1,5 +1,9 @@
 namespace AllodsParser
 {
+    /// <summary>
+    /// Apply palettes from PalFile in /units/ directory to sprite file in the same directory.
+    /// Exception: palette.pal files under heroes, heroes_l and humans folder
+    /// </summary>
     public class UnitsPalMergerConverter : BaseFileConverter
     {
         public override void Convert(List<BaseFile> files)
@@ -24,12 +28,33 @@ namespace AllodsParser
                 .Where(a => a.relativeFileDirectory == toConvert.relativeFileDirectory)
                 .ToList();
 
-            if (oldFiles.Count == 0)
+            if (oldFiles.Count != 0)
+            {
+                Update(toConvert, oldFiles);
+                yield break;
+            }
+
+            if (!toConvert.relativeFilePath.EndsWith("palette.pal"))
             {
                 Console.WriteLine($"Cant find Sprites for palette {toConvert.relativeFilePath}");
                 yield break;
             }
 
+            var allFilesInFolder = files
+                .OfType<SpritesWithPalettesFile>()
+                .Where(a => a.relativeFileDirectory.StartsWith(toConvert.relativeFileDirectory + "/"))
+                .GroupBy(a => a.relativeFileDirectory)
+                .ToList();
+
+            foreach (var filesInFolder in allFilesInFolder)
+            {
+                Update(toConvert, filesInFolder.ToList());
+            }
+            yield break;
+        }
+
+        private void Update(PalFile toConvert, List<SpritesWithPalettesFile> oldFiles)
+        {
             SpritesWithPalettesFile oldFile = null;
 
             if (oldFiles.Count == 2)
@@ -47,13 +72,11 @@ namespace AllodsParser
             if (oldFile == null)
             {
                 Console.WriteLine($"Too many sprites for palette {toConvert.relativeFilePath}");
-                yield break;
+                return;
             }
 
             oldFile.Palettes.Clear();
             oldFile.Palettes.AddRange(toConvert.Palettes);
-
-            yield break;
         }
     }
 }

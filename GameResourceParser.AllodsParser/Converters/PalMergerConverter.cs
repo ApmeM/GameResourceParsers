@@ -1,5 +1,9 @@
 namespace AllodsParser
 {
+    /// <summary>
+    /// Some units folders contains more then 1 palette file.
+    /// Merge them all together to a single PalFile .
+    /// </summary>
     public class PalMergerConverter : BaseFileConverter
     {
         public override void Convert(List<BaseFile> files)

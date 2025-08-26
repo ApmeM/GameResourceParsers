@@ -47,7 +47,7 @@ namespace AllodsParser
                             Description = GetString(value, "DescText"),
                             Parent = GetInt(value, "Parent"),
                             Id = GetInt(value, "ID"),
-                            File = file,
+                            File = file.Replace("heroes", "humans"),
                             Index = GetInt(value, "Index"),
                             MovePhases = GetInt(value, "MovePhases"),
                             MoveBeginPhases = GetInt(value, "MoveBeginPhases"),
