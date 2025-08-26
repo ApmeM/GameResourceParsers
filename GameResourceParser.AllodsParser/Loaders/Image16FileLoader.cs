@@ -102,6 +102,11 @@ public class Image16FileLoader : BaseFileLoader
             ms.Position = cpos + ds;
         }
 
+        if (frames.Count == 0)
+        {
+            return new EmptyFile();
+        }
+
         return new SpritesWithPalettesFile
         {
             Sprites = frames,

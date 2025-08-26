@@ -109,6 +109,11 @@ public class Image16aFileLoader : BaseFileLoader
             ms.Position = cpos + ds;
         }
 
+        if (frames.Count == 0)
+        {
+            return new EmptyFile();
+        }
+
         /*
         texture[ix, iy] = palette[(int)idx, 0];
         texture[ix, iy].Alpha = (byte)alpha;
