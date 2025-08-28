@@ -32,7 +32,7 @@ namespace AllodsParser
             {
                 case "allods":
                     FileFactory = AllodsParserConfigurator.FileFactory;
-                    FileConverters = AllodsParserConfigurator.FileConverters;
+                    FileConverters = AllodsParserConfigurator.FileConverters(result);
                     break;
                 default:
                     Console.WriteLine("Can not recognize parser type.");

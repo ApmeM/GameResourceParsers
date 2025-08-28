@@ -16,10 +16,11 @@
             {".pal", ()=>new PalFileLoader()},
         };
 
-        public static List<IBaseFileConverter> FileConverters = new List<IBaseFileConverter>{
+        public static Func<string, List<IBaseFileConverter>> FileConverters = outputFileDirectory => new List<IBaseFileConverter>{
             new RegToStructuresConverter(),
             new RegToUnitsConverter(),
             new RegToObjectsConverter(),
+            new SaveFileConverter<RegFile>(outputFileDirectory),
             new PalMergerConverter(),
             new UnitsPalMergerConverter(),
             new StructuresReconstructionConverter(),

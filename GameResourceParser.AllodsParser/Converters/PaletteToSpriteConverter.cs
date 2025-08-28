@@ -28,6 +28,7 @@ namespace AllodsParser
                     relativeFileDirectory = unit == null ? toConvert.relativeFileDirectory : Path.Combine(toConvert.relativeFileDirectory, ".."),
                     relativeFileName = unit == null ? toConvert.relativeFileName : path[path.Length - 1],
                 };
+                yield break;
             }
 
             var newLevels = new List<SpriteFile.SpriteLevel>();

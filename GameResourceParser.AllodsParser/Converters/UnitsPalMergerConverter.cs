@@ -8,10 +8,9 @@ namespace AllodsParser
     {
         protected override IEnumerable<BaseFile> ConvertFile(PalFile toConvert, List<BaseFile> files)
         {
-            yield return toConvert;
-
             if (!toConvert.relativeFileDirectory.Contains("/units/"))
             {
+                yield return toConvert;
                 yield break;
             }
 
