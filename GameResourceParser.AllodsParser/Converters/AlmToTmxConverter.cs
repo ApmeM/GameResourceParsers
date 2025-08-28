@@ -3,23 +3,9 @@ using SixLabors.ImageSharp;
 
 namespace AllodsParser
 {
-    public class AlmToTmxConverter : BaseFileConverter
+    public class AlmToTmxConverter : BaseFileConverter<AlmFile>
     {
-        public override void Convert(List<BaseFile> files)
-        {
-            var oldFiles = files
-                .OfType<AlmFile>()
-                .ToList();
-
-            Console.WriteLine($"{this.GetType()} converts {oldFiles.Count} files");
-
-            var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
-
-            oldFiles.ForEach(f => files.Remove(f));
-            newFiles.ForEach(f => files.Add(f));
-        }
-
-        private IEnumerable<TmxFile> ConvertFile(AlmFile toConvert, List<BaseFile> files)
+        protected override IEnumerable<TmxFile> ConvertFile(AlmFile toConvert, List<BaseFile> files)
         {
             var pngExt = GameParserConfigurator.SpriteOutput switch
             {

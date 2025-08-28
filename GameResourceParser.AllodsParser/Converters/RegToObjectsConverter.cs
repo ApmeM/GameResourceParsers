@@ -2,25 +2,16 @@ using SixLabors.ImageSharp;
 
 namespace AllodsParser
 {
-    public class RegToObjectsConverter : BaseFileConverter
+    public class RegToObjectsConverter : BaseFileConverter<RegFile>
     {
-        public override void Convert(List<BaseFile> files)
+        protected override IEnumerable<BaseFile> ConvertFile(RegFile toConvert, List<BaseFile> files)
         {
-            var oldFiles = files
-                .OfType<RegFile>()
-                .Where(a => a.relativeFilePath == "graphics/objects/objects.reg")
-                .ToList();
+            yield return toConvert;
+            if (toConvert.relativeFilePath != "graphics/objects/objects.reg")
+            {
+                yield break;
+            }
 
-            Console.WriteLine($"{this.GetType()} converts {oldFiles.Count} files");
-            
-            var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
-
-            oldFiles.ForEach(f => files.Remove(f));
-            newFiles.ForEach(f => files.Add(f));
-        }
-
-        public IEnumerable<BaseFile> ConvertFile(RegFile toConvert, List<BaseFile> files)
-        {
             var fileList = ((Dictionary<string, object>)toConvert.Root["Files"])
                 .ToDictionary(
                     a => int.Parse(a.Key.Remove(0, "File".Length)),

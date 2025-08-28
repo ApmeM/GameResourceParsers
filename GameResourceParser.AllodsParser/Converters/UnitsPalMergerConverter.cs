@@ -4,25 +4,17 @@ namespace AllodsParser
     /// Apply palettes from PalFile in /units/ directory to sprite file in the same directory.
     /// Exception: palette.pal files under heroes, heroes_l and humans folder
     /// </summary>
-    public class UnitsPalMergerConverter : BaseFileConverter
+    public class UnitsPalMergerConverter : BaseFileConverter<PalFile>
     {
-        public override void Convert(List<BaseFile> files)
+        protected override IEnumerable<BaseFile> ConvertFile(PalFile toConvert, List<BaseFile> files)
         {
-            var oldFiles = files
-                .OfType<PalFile>()
-                .Where(a => a.relativeFileDirectory.Contains("/units/"))
-                .ToList();
+            yield return toConvert;
 
-            Console.WriteLine($"{this.GetType()} converts {oldFiles.Count} files");
+            if (!toConvert.relativeFileDirectory.Contains("/units/"))
+            {
+                yield break;
+            }
 
-            var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
-
-            oldFiles.ForEach(f => files.Remove(f));
-            newFiles.ForEach(f => files.Add(f));
-        }
-
-        private IEnumerable<SpritesWithPalettesFile> ConvertFile(PalFile toConvert, List<BaseFile> files)
-        {
             var oldFiles = files
                 .OfType<SpritesWithPalettesFile>()
                 .Where(a => a.relativeFileDirectory == toConvert.relativeFileDirectory)

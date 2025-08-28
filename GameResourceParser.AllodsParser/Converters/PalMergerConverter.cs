@@ -4,39 +4,25 @@ namespace AllodsParser
     /// Some units folders contains more then 1 palette file.
     /// Merge them all together to a single PalFile .
     /// </summary>
-    public class PalMergerConverter : BaseFileConverter
+    public class PalMergerConverter : BaseFileConverter<PalFile>
     {
-        public override void Convert(List<BaseFile> files)
+        protected override IEnumerable<PalFile> ConvertFile(PalFile toConvert, List<BaseFile> files)
         {
-            var oldFiles = files
-                .OfType<PalFile>()
-                .GroupBy(a => a.relativeFileDirectory)
-                .ToList();
-
-            Console.WriteLine($"{this.GetType()} converts {oldFiles.Count} files");
-
-            var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
-
-            oldFiles.ForEach(oldFile =>
+            if (!files.Contains(toConvert))
             {
-                foreach (var f in oldFile)
-                {
-                    files.Remove(f);
-                }
-            });
+                yield break;
+            }
 
-            newFiles.ForEach(f => files.Add(f));
-        }
+            var sameDirectory = files.Where(a => a.relativeFileDirectory == toConvert.relativeFileDirectory).OfType<PalFile>().ToList();
 
-        private IEnumerable<PalFile> ConvertFile(IGrouping<string, PalFile> toConvert, List<BaseFile> files)
-        {
             yield return new PalFile
             {
-                Palettes = toConvert.OrderBy(a => a.relativeFileName).SelectMany(a => a.Palettes).ToList(),
+                Palettes = sameDirectory.OrderBy(a => a.relativeFileName).SelectMany(a => a.Palettes).ToList(),
                 relativeFileExtension = ".pal",
-                relativeFileDirectory = toConvert.First().relativeFileDirectory,
+                relativeFileDirectory = toConvert.relativeFileDirectory,
                 relativeFileName = "palette"
             };
+            sameDirectory.ForEach(a => files.Remove(a));
         }
     }
 }

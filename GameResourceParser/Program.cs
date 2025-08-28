@@ -26,7 +26,7 @@ namespace AllodsParser
             }
 
             Dictionary<string, Func<BaseFileLoader>> FileFactory;
-            List<BaseFileConverter> FileConverters;
+            List<IBaseFileConverter> FileConverters;
 
             switch (type.ToLower())
             {

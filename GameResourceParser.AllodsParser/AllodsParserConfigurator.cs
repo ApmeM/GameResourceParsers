@@ -16,7 +16,7 @@
             {".pal", ()=>new PalFileLoader()},
         };
 
-        public static List<BaseFileConverter> FileConverters = new List<BaseFileConverter>{
+        public static List<IBaseFileConverter> FileConverters = new List<IBaseFileConverter>{
             new RegToStructuresConverter(),
             new RegToUnitsConverter(),
             new RegToObjectsConverter(),

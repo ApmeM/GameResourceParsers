@@ -4,29 +4,16 @@ using SixLabors.ImageSharp.Processing;
 
 namespace AllodsParser
 {
-    public class SpriteToSingleImageConverter : BaseFileConverter
+    public class SpriteToSingleImageConverter : BaseFileConverter<SpriteFile>
     {
-        public override void Convert(List<BaseFile> files)
+        protected override IEnumerable<BaseFile> ConvertFile(SpriteFile toConvert, List<BaseFile> files)
         {
             if (GameParserConfigurator.SpriteOutput != GameParserConfigurator.SpriteOutputFormat.SingleSprite)
             {
-                return;
+                yield return toConvert;
+                yield break;
             }
 
-            var oldFiles = files
-                .OfType<SpriteFile>()
-                .ToList();
-
-            Console.WriteLine($"{this.GetType()} converts {oldFiles.Count} files");
-
-            var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
-
-            oldFiles.ForEach(f => files.Remove(f));
-            newFiles.ForEach(f => files.Add(f));
-        }
-
-        private IEnumerable<ImageFile> ConvertFile(SpriteFile toConvert, List<BaseFile> files)
-        {
             if (toConvert.Levels.SelectMany(a => a.AllSprites).Count() == 0)
             {
                 Console.Error.WriteLine($"Sprite {toConvert.relativeFilePath} does not have sprites converted.");

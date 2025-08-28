@@ -4,29 +4,16 @@ using SixLabors.ImageSharp.Processing;
 
 namespace AllodsParser
 {
-    public class SpriteToGodotImageConverter : BaseFileConverter
+    public class SpriteToGodotImageConverter : BaseFileConverter<SpriteFile>
     {
-        public override void Convert(List<BaseFile> files)
+        protected override IEnumerable<BaseFile> ConvertFile(SpriteFile toConvert, List<BaseFile> files)
         {
             if (GameParserConfigurator.SpriteOutput != GameParserConfigurator.SpriteOutputFormat.GodotSprite)
             {
-                return;
+                yield return toConvert;
+                yield break;
             }
 
-            var oldFiles = files
-                .OfType<SpriteFile>()
-                .ToList();
-
-            Console.WriteLine($"{this.GetType()} converts {oldFiles.Count} files");
-
-            var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
-
-            oldFiles.ForEach(f => files.Remove(f));
-            newFiles.ForEach(f => files.Add(f));
-        }
-
-        private IEnumerable<BaseFile> ConvertFile(SpriteFile toConvert, List<BaseFile> files)
-        {
             for (var i = 0; i < toConvert.Levels.Count; i++)
             {
                 if (toConvert.Levels[i].AllSprites.Count == 0)

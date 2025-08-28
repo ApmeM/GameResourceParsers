@@ -7,23 +7,9 @@ namespace AllodsParser
     /// <summary>
     /// Final converter of allods files to common files that are available for save to other formats like godot, tmx, etc.
     /// </summary>
-    public class PaletteToSpriteConverter : BaseFileConverter
+    public class PaletteToSpriteConverter : BaseFileConverter<SpritesWithPalettesFile>
     {
-        public override void Convert(List<BaseFile> files)
-        {
-            var oldFiles = files
-                .OfType<SpritesWithPalettesFile>()
-                .ToList();
-
-            Console.WriteLine($"{this.GetType()} converts {oldFiles.Count} files");
-
-            var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
-
-            oldFiles.ForEach(f => files.Remove(f));
-            newFiles.ForEach(f => files.Add(f));
-        }
-
-        private IEnumerable<SpriteFile> ConvertFile(SpritesWithPalettesFile toConvert, List<BaseFile> files)
+        protected override IEnumerable<SpriteFile> ConvertFile(SpritesWithPalettesFile toConvert, List<BaseFile> files)
         {
             var units = files.OfType<RegUnitsFile>().First();
 

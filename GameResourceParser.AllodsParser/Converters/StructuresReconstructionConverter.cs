@@ -4,24 +4,12 @@ using SixLabors.ImageSharp.Processing;
 
 namespace AllodsParser
 {
-    public class StructuresReconstructionConverter : BaseFileConverter
+    public class StructuresReconstructionConverter : BaseFileConverter<RegStructureFile>
     {
-        public override void Convert(List<BaseFile> files)
+        protected override IEnumerable<BaseFile> ConvertFile(RegStructureFile toConvert, List<BaseFile> files)
         {
-            var oldFiles = files
-                .OfType<RegStructureFile>()
-                .ToList();
+            yield return toConvert;
 
-            Console.WriteLine($"{this.GetType()} converts {oldFiles.Count} files");
-
-            var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
-
-            // oldFiles.ForEach(f => files.Remove(f));
-            newFiles.ForEach(f => files.Add(f));
-        }
-
-        private IEnumerable<ImageFile> ConvertFile(RegStructureFile toConvert, List<BaseFile> files)
-        {
             var filesCreated = new HashSet<string>();
             for (int i = 0; i < toConvert.Structures.Count; i++)
             {
