@@ -17,18 +17,31 @@
         };
 
         public static Func<string, List<IBaseFileConverter>> FileConverters = outputFileDirectory => new List<IBaseFileConverter>{
+            new SkipFileConverter<EmptyFile>(),
+
             new RegToStructuresConverter(),
             new RegToUnitsConverter(),
             new RegToObjectsConverter(),
             new SaveFileConverter<RegFile>(outputFileDirectory),
             new PalMergerConverter(),
             new UnitsPalMergerConverter(),
+            new SaveFileConverter<PalFile>(outputFileDirectory),
             new StructuresReconstructionConverter(),
-            new PaletteToSpriteConverter(),
-            new SpriteToSeparateImageConverter(),
-            new SpriteToPerLevelImageConverter(),
-            new SpriteToSingleImageConverter(),
+            new UnitsReconstructionConverter(),
+            new ApplyPaletteConverter(),
+
+            new SpriteDescribeConverter(),
+
+            new SaveSpriteToSeparateImageConverter(outputFileDirectory),
+            new SaveSpriteToSingleImageConverter(outputFileDirectory),
+            new SkipFileConverter<SpriteFile>(),
+
             new SpriteToGodotImageConverter(),
+
+            new SaveFileConverter<RegStructureFile>(outputFileDirectory),
+            new SaveFileConverter<RegObjectsFile>(outputFileDirectory),
+            new SaveFileConverter<RegUnitsFile>(outputFileDirectory),
+
             new AlmToTmxConverter(),
         };
     }

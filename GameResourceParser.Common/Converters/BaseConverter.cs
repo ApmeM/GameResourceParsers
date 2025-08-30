@@ -14,10 +14,12 @@ namespace AllodsParser
 
             var newFiles = oldFiles.SelectMany(a => ConvertFile(a, files)).ToList();
 
-            Console.WriteLine($"{this.GetType()} finish converting {oldFiles.Count} files of type {typeof(T)} to {newFiles.Count} files of type {string.Join(",", newFiles.GroupBy(a => a.GetType()).Select(a => $"{a.Key}:{a.Count()}"))}.");
+            Console.WriteLine($"{this.GetType()} finish converting {oldFiles.Count} files of type {typeof(T)} to {newFiles.Count} files of type {string.Join(", ", newFiles.GroupBy(a => a.GetType()).Select(a => $"{a.Key}:{a.Count()}"))}.");
 
             oldFiles.ForEach(f => files.Remove(f));
             newFiles.ForEach(f => files.Add(f));
+
+            Console.WriteLine($"{this.GetType()} Total files count: {files.Count}");
         }
 
         protected abstract IEnumerable<BaseFile> ConvertFile(T a, List<BaseFile> files);
