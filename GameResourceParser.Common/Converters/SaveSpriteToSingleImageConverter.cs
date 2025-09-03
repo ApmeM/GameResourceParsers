@@ -30,14 +30,12 @@ namespace AllodsParser
                 newImage.Mutate(a => a.DrawImage(toConvert.Sprites[j], new Point(newWidth * (j % countWidth), newHeight * (j / countWidth)), 1));
             }
 
-            var filename = toConvert.relativeFileName[0].ToString().ToUpper() + toConvert.relativeFileName.Substring(1);
-
             var image = new ImageFile
             {
                 Image = newImage,
                 relativeFileExtension = ".png",
-                relativeFileDirectory = Path.Combine(toConvert.relativeFileDirectory, filename),
-                relativeFileName = filename
+                relativeFileDirectory = toConvert.relativeFileDirectory,
+                relativeFileName = toConvert.relativeFileName
             };
 
             image.Save(outputDirectory);

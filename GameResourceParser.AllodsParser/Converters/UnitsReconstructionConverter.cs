@@ -16,11 +16,9 @@ namespace AllodsParser
 
             if (unit == null || !unit.Flip)
             {
-                yield return toConvert;
                 yield break;
             }
 
-            var path = unit.File.Split("/");
             var baseSkip = 0;
             var sprites = toConvert.Sprites;
 

@@ -13,8 +13,6 @@ namespace AllodsParser
         {
             yield return toConvert;
 
-            var filename = toConvert.relativeFileName[0].ToString().ToUpper() + toConvert.relativeFileName.Substring(1);
-
             for (int i = 0; i < toConvert.Sprites.Count; i++)
             {
                 var newImage = toConvert.Sprites[i];
@@ -22,8 +20,8 @@ namespace AllodsParser
                 {
                     Image = newImage,
                     relativeFileExtension = ".png",
-                    relativeFileDirectory = toConvert.relativeFileDirectory,
-                    relativeFileName = filename + "." + i
+                    relativeFileDirectory = Path.Join(toConvert.relativeFileDirectory, toConvert.relativeFileName),
+                    relativeFileName = toConvert.relativeFileName + "." + i
                 };
 
                 image.Save(outputDirectory);

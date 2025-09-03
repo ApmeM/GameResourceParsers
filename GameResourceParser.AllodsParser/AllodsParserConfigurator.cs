@@ -25,9 +25,13 @@
             new SaveFileConverter<RegFile>(outputFileDirectory),
             new PalMergerConverter(),
             new UnitsPalMergerConverter(),
-            new SaveFileConverter<PalFile>(outputFileDirectory),
+            new SkipFileConverter<PalFile>(),
             new StructuresReconstructionConverter(),
             new UnitsReconstructionConverter(),
+
+            new SpritePathRecalculationConverter(),
+            new RegUnitPathRecalculationConverter(),
+
             new ApplyPaletteConverter(),
 
             new SpriteDescribeConverter(),
@@ -38,11 +42,11 @@
 
             new SpriteToGodotImageConverter(),
 
+            new AlmToTmxConverter(),
+
             new SaveFileConverter<RegStructureFile>(outputFileDirectory),
             new SaveFileConverter<RegObjectsFile>(outputFileDirectory),
             new SaveFileConverter<RegUnitsFile>(outputFileDirectory),
-
-            new AlmToTmxConverter(),
         };
     }
 }
