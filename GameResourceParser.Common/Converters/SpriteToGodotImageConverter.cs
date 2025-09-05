@@ -1,6 +1,4 @@
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
 
 namespace AllodsParser
 {
@@ -20,7 +18,7 @@ namespace AllodsParser
             var countWidth = ((int)Math.Sqrt(toConvert.AllSprites.Count)) + 1;
             var countHeight = ((int)Math.Sqrt(toConvert.AllSprites.Count)) + 1;
 
-            var filename = toConvert.relativeFileName[0].ToString().ToUpper() + toConvert.relativeFileName.Substring(1);
+            var filename = toConvert.relativeFileName;
 
             yield return new StringFile
             {

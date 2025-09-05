@@ -29,7 +29,7 @@
             new StructuresReconstructionConverter(),
             new UnitsReconstructionConverter(),
 
-            new SpritePathRecalculationConverter(),
+            new UnitSpritePathRecalculationConverter(),
             new RegUnitPathRecalculationConverter(),
 
             new ApplyPaletteConverter(),
