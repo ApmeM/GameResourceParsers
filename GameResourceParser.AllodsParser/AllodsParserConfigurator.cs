@@ -28,19 +28,16 @@
             new SkipFileConverter<PalFile>(),
             new StructuresReconstructionConverter(),
             new UnitsReconstructionConverter(),
-
             new UnitSpritePathRecalculationConverter(),
             new RegUnitPathRecalculationConverter(),
-
             new ApplyPaletteConverter(),
-
-            new SpriteDescribeConverter(),
+            new UnitSpriteDescribeConverter(),
 
             new SaveSpriteToSeparateImageConverter(outputFileDirectory),
             new SaveSpriteToSingleImageConverter(outputFileDirectory),
             new SkipFileConverter<SpriteFile>(),
 
-            new SpriteToGodotImageConverter(),
+            new SpriteDescriptionToGodotImageConverter(),
 
             new AlmToTmxConverter(),
 

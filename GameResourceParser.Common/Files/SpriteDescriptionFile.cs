@@ -1,21 +1,31 @@
 using AllodsParser;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
 
 public class SpriteDescriptionFile : BaseFile
 {
-    public List<Image<Rgba32>> AllSprites => StayAll.Concat(MoveAll).Concat(AttackAll).Concat(DieAll).ToList();
+    public struct Description
+    {
+        public int Id;
+        public int Width;
+        public int Height;
+    }
+
+    public int FrameWidth;
+    public int FrameHeight;
+    public int CountWidth;
+    public int CountHeight;
+
+    public List<Description> AllSprites => StayAll.Concat(MoveAll).Concat(AttackAll).Concat(DieAll).ToList();
 
     public float StayLength;
-    public List<Image<Rgba32>> StayLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> StayTopLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> StayBottomLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> StayRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> StayTopRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> StayBottomRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> StayTop = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> StayBottom = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> StayAll => StayBottom
+    public List<Description> StayLeft = new List<Description>();
+    public List<Description> StayTopLeft = new List<Description>();
+    public List<Description> StayBottomLeft = new List<Description>();
+    public List<Description> StayRight = new List<Description>();
+    public List<Description> StayTopRight = new List<Description>();
+    public List<Description> StayBottomRight = new List<Description>();
+    public List<Description> StayTop = new List<Description>();
+    public List<Description> StayBottom = new List<Description>();
+    public List<Description> StayAll => StayBottom
         .Concat(StayBottomLeft)
         .Concat(StayLeft)
         .Concat(StayTopLeft)
@@ -26,15 +36,15 @@ public class SpriteDescriptionFile : BaseFile
         .ToList();
 
     public float MoveLength;
-    public List<Image<Rgba32>> MoveLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> MoveTopLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> MoveBottomLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> MoveRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> MoveTopRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> MoveBottomRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> MoveTop = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> MoveBottom = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> MoveAll => MoveBottom
+    public List<Description> MoveLeft = new List<Description>();
+    public List<Description> MoveTopLeft = new List<Description>();
+    public List<Description> MoveBottomLeft = new List<Description>();
+    public List<Description> MoveRight = new List<Description>();
+    public List<Description> MoveTopRight = new List<Description>();
+    public List<Description> MoveBottomRight = new List<Description>();
+    public List<Description> MoveTop = new List<Description>();
+    public List<Description> MoveBottom = new List<Description>();
+    public List<Description> MoveAll => MoveBottom
         .Concat(MoveBottomLeft)
         .Concat(MoveLeft)
         .Concat(MoveTopLeft)
@@ -46,15 +56,15 @@ public class SpriteDescriptionFile : BaseFile
 
     public float HitDelay;
     public float AttackLength;
-    public List<Image<Rgba32>> AttackLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> AttackTopLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> AttackBottomLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> AttackRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> AttackTopRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> AttackBottomRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> AttackTop = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> AttackBottom = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> AttackAll => AttackBottom
+    public List<Description> AttackLeft = new List<Description>();
+    public List<Description> AttackTopLeft = new List<Description>();
+    public List<Description> AttackBottomLeft = new List<Description>();
+    public List<Description> AttackRight = new List<Description>();
+    public List<Description> AttackTopRight = new List<Description>();
+    public List<Description> AttackBottomRight = new List<Description>();
+    public List<Description> AttackTop = new List<Description>();
+    public List<Description> AttackBottom = new List<Description>();
+    public List<Description> AttackAll => AttackBottom
         .Concat(AttackBottomLeft)
         .Concat(AttackLeft)
         .Concat(AttackTopLeft)
@@ -65,15 +75,16 @@ public class SpriteDescriptionFile : BaseFile
         .ToList();
 
     public float DieFPS = 5;
-    public List<Image<Rgba32>> DieLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> DieTopLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> DieBottomLeft = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> DieRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> DieTopRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> DieBottomRight = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> DieTop = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> DieBottom = new List<Image<Rgba32>>();
-    public List<Image<Rgba32>> DieAll => DieBottom
+    public List<Description> DieLeft = new List<Description>();
+    public List<Description> DieTopLeft = new List<Description>();
+    public List<Description> DieBottomLeft = new List<Description>();
+    public List<Description> DieRight = new List<Description>();
+    public List<Description> DieTopRight = new List<Description>();
+    public List<Description> DieBottomRight = new List<Description>();
+    public List<Description> DieTop = new List<Description>();
+    public List<Description> DieBottom = new List<Description>();
+
+    public List<Description> DieAll => DieBottom
         .Concat(DieBottomLeft)
         .Concat(DieLeft)
         .Concat(DieTopLeft)
