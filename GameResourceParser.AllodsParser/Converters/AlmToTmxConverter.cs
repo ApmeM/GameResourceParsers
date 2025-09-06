@@ -7,15 +7,6 @@ namespace AllodsParser
     {
         protected override IEnumerable<TmxFile> ConvertFile(AlmFile toConvert, List<BaseFile> files)
         {
-            var pngExt = GameParserConfigurator.SpriteOutput switch
-            {
-                GameParserConfigurator.SpriteOutputFormat.SingleSprite => "",
-                GameParserConfigurator.SpriteOutputFormat.PerLevelSprite => ".0",
-                GameParserConfigurator.SpriteOutputFormat.EachSprite => "{pngExt}",
-                GameParserConfigurator.SpriteOutputFormat.GodotSprite => "{pngExt}",
-                _ => throw new NotImplementedException()
-            };
-
             var map = new TmxMap
             {
                 Orientation = TmxOrientation.Orthogonal,
@@ -97,7 +88,7 @@ namespace AllodsParser
                     TileHeight = structure.FullHeight * 32,
                     Image = new TmxImage
                     {
-                        Source = $"../graphics/structures/{structure.File.ToLower()}{pngExt}.png"
+                        Source = $"../graphics/structures/{structure.File.ToLower()}.png"
                     },
                     FirstGid = 5500 + structure.Id
 
@@ -134,7 +125,7 @@ namespace AllodsParser
                     TileHeight = unit.Height,
                     Image = new TmxImage
                     {
-                        Source = $"../graphics/units/{unit.File.ToLower()}{pngExt}.png"
+                        Source = $"../graphics/units/{unit.File.ToLower()}.png"
                     },
                     FirstGid = 6000 + unit.Id
 
@@ -172,8 +163,8 @@ namespace AllodsParser
                     Image = new TmxImage
                     {
                         Source = !obj.File.ToLower().EndsWith("fire") ?
-                                $"../graphics/objects/{obj.File.ToLower()}{pngExt}.png" :
-                                $"../graphics/objects/{obj.File.Replace("fire", "dead").ToLower()}{pngExt}.png"
+                                $"../graphics/objects/{obj.File.ToLower()}.png" :
+                                $"../graphics/objects/{obj.File.Replace("fire", "dead").ToLower()}.png"
                     },
                     FirstGid = 7000 + obj.Id,
                     TileOffset = new TmxTileOffset
