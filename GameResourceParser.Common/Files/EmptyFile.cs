@@ -1,9 +1,6 @@
-namespace AllodsParser
+public class EmptyFile : BaseFile
 {
-    public class EmptyFile : BaseFile
+    protected override void SaveInternal(string outputFileName)
     {
-        protected override void SaveInternal(string outputFileName)
-        {
-        }
     }
 }

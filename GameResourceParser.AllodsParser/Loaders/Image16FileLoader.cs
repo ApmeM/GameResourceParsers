@@ -1,5 +1,4 @@
-﻿using AllodsParser;
-using SixLabors.ImageSharp;
+﻿using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
 public class Image16FileLoader : BaseFileLoader

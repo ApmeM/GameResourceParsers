@@ -14,5 +14,6 @@
 <ItemGroup>
   <ProjectReference Include="../GameResourceParser.Common/GameResourceParser.Common.csproj" />
   <ProjectReference Include="../GameResourceParser.AllodsParser/GameResourceParser.AllodsParser.csproj" />
+  <ProjectReference Include="../GameResourceParser.BeastsAndBumpkins/GameResourceParser.BeastsAndBumpkins.csproj" />
 </ItemGroup>
 </Project>

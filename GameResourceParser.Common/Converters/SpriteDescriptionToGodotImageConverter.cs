@@ -1,38 +1,36 @@
 using SixLabors.ImageSharp;
 
-namespace AllodsParser
+public class SpriteDescriptionToGodotImageConverter : BaseFileConverter<SpriteDescriptionFile>
 {
-    public class SpriteDescriptionToGodotImageConverter : BaseFileConverter<SpriteDescriptionFile>
+    protected override IEnumerable<BaseFile> ConvertFile(SpriteDescriptionFile toConvert, List<BaseFile> files)
     {
-        protected override IEnumerable<BaseFile> ConvertFile(SpriteDescriptionFile toConvert, List<BaseFile> files)
+        var newWidth = toConvert.FrameWidth;
+        var newHeight = toConvert.FrameHeight;
+
+        var countWidth = toConvert.CountWidth;
+        var countHeight = toConvert.CountHeight;
+
+        var filename = toConvert.relativeFileName;
+
+        yield return new StringFile
         {
-            var newWidth = toConvert.FrameWidth;
-            var newHeight = toConvert.FrameHeight;
-
-            var countWidth = toConvert.CountWidth;
-            var countHeight = toConvert.CountHeight;
-
-            var filename = toConvert.relativeFileName;
-
-            yield return new StringFile
-            {
-                relativeFileExtension = ".cs",
-                relativeFileDirectory = toConvert.relativeFileDirectory,
-                relativeFileName = filename,
-                Data = @$"using Godot;
+            relativeFileExtension = ".cs",
+            relativeFileDirectory = toConvert.relativeFileDirectory,
+            relativeFileName = filename,
+            Data = @$"using Godot;
 
 [SceneReference(""{filename}.tscn"")]
 public partial class {filename}
 {{
 }}"
-            };
+        };
 
-            yield return new StringFile
-            {
-                relativeFileExtension = ".tscn",
-                relativeFileDirectory = toConvert.relativeFileDirectory,
-                relativeFileName = filename,
-                Data = @$"
+        yield return new StringFile
+        {
+            relativeFileExtension = ".tscn",
+            relativeFileDirectory = toConvert.relativeFileDirectory,
+            relativeFileName = filename,
+            Data = @$"
 [gd_scene load_steps=57 format=2]
 
 [ext_resource path=""res://Presentation/units/{filename}/{filename}.png"" type=""Texture"" id=1]
@@ -176,7 +174,6 @@ parameters/playback = SubResource( {toConvert.AllSprites.Count + 2} )
 [editable path=""QuestPopup""]
 [editable path=""SignPopup""]
 "
-            };
-        }
+        };
     }
 }

@@ -1,31 +1,28 @@
-namespace AllodsParser
+public class SaveSpriteToSeparateImageConverter : BaseFileConverter<SpriteFile>
 {
-    public class SaveSpriteToSeparateImageConverter : BaseFileConverter<SpriteFile>
+    private readonly string outputDirectory;
+
+    public SaveSpriteToSeparateImageConverter(string outputDirectory)
     {
-        private readonly string outputDirectory;
+        this.outputDirectory = outputDirectory;
+    }
 
-        public SaveSpriteToSeparateImageConverter(string outputDirectory)
-        {
-            this.outputDirectory = outputDirectory;
-        }
-        
-        protected override IEnumerable<BaseFile> ConvertFile(SpriteFile toConvert, List<BaseFile> files)
-        {
-            yield return toConvert;
+    protected override IEnumerable<BaseFile> ConvertFile(SpriteFile toConvert, List<BaseFile> files)
+    {
+        yield return toConvert;
 
-            for (int i = 0; i < toConvert.Sprites.Count; i++)
+        for (int i = 0; i < toConvert.Sprites.Count; i++)
+        {
+            var newImage = toConvert.Sprites[i];
+            var image = new ImageFile
             {
-                var newImage = toConvert.Sprites[i];
-                var image = new ImageFile
-                {
-                    Image = newImage,
-                    relativeFileExtension = ".png",
-                    relativeFileDirectory = Path.Join(toConvert.relativeFileDirectory, toConvert.relativeFileName),
-                    relativeFileName = toConvert.relativeFileName + "." + i
-                };
+                Image = newImage,
+                relativeFileExtension = ".png",
+                relativeFileDirectory = Path.Join(toConvert.relativeFileDirectory, toConvert.relativeFileName),
+                relativeFileName = toConvert.relativeFileName + "." + i
+            };
 
-                image.Save(outputDirectory);
-            }
+            image.Save(outputDirectory);
         }
     }
 }

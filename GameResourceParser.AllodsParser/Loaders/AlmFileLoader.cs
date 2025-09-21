@@ -1,7 +1,4 @@
-﻿using AllodsParser;
-using SimpleTiled;
-
-public class AlmFileLoader : BaseFileLoader
+﻿public class AlmFileLoader : BaseFileLoader
 {
     protected override BaseFile LoadInternal(string relativeFilePath, MemoryStream ms, BinaryReader br)
     {

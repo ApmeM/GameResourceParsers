@@ -1,17 +1,14 @@
 using SimpleTiled;
 
-namespace AllodsParser
+public class TmxFile : BaseFile
 {
-    public class TmxFile : BaseFile
-    {
-        public TmxMap Map;
+    public TmxMap Map;
 
-        protected override void SaveInternal(string outputFileName)
+    protected override void SaveInternal(string outputFileName)
+    {
+        using (var f = File.OpenWrite(outputFileName))
         {
-            using (var f = File.OpenWrite(outputFileName))
-            {
-                TiledHelper.Write(Map, f);
-            }
+            TiledHelper.Write(Map, f);
         }
     }
 }

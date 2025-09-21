@@ -1,10 +1,7 @@
-namespace AllodsParser
+public class SkipFileConverter<T> : BaseFileConverter<T> where T : BaseFile
 {
-    public class SkipFileConverter<T> : BaseFileConverter<T> where T : BaseFile
+    protected override IEnumerable<BaseFile> ConvertFile(T toConvert, List<BaseFile> files)
     {
-        protected override IEnumerable<BaseFile> ConvertFile(T toConvert, List<BaseFile> files)
-        {
-            yield break;
-        }
+        yield break;
     }
 }

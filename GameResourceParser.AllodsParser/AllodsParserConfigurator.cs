@@ -1,8 +1,6 @@
-﻿namespace AllodsParser
+﻿public static class AllodsParserConfigurator
 {
-    public static class AllodsParserConfigurator
-    {
-        public static Dictionary<string, Func<BaseFileLoader>> FileFactory = new Dictionary<string, Func<BaseFileLoader>>{
+    public static Dictionary<string, Func<BaseFileLoader>> FileFactory = new Dictionary<string, Func<BaseFileLoader>>{
             {".ttf", ()=>new BinaryFileLoader()},
             {".bmp", ()=>new BinaryFileLoader()},
             {".png", ()=>new BinaryFileLoader()},
@@ -16,7 +14,7 @@
             {".pal", ()=>new PalFileLoader()},
         };
 
-        public static Func<string, List<IBaseFileConverter>> FileConverters = outputFileDirectory => new List<IBaseFileConverter>{
+    public static Func<string, List<IBaseFileConverter>> FileConverters = outputFileDirectory => new List<IBaseFileConverter>{
             new SkipFileConverter<EmptyFile>(),
 
             new RegToStructuresConverter(),
@@ -45,5 +43,4 @@
             new SaveFileConverter<RegObjectsFile>(outputFileDirectory),
             new SaveFileConverter<RegUnitsFile>(outputFileDirectory),
         };
-    }
 }

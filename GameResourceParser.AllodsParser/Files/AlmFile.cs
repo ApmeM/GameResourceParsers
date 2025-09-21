@@ -1,6 +1,5 @@
 using System.Numerics;
 using System.Text;
-using AllodsParser;
 
 public class AlmFile : BaseFile
 {

@@ -1,8 +1,4 @@
-
-namespace AllodsParser
+public interface IBaseFileConverter
 {
-    public interface IBaseFileConverter
-    {
-        void Convert(List<BaseFile> files);
-    }
+    void Convert(List<BaseFile> files);
 }

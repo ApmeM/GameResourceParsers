@@ -1,5 +1,3 @@
-using AllodsParser;
-
 public class SpriteDescriptionFile : BaseFile
 {
     public struct Description

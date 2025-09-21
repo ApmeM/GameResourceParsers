@@ -1,4 +1,3 @@
-using AllodsParser;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
