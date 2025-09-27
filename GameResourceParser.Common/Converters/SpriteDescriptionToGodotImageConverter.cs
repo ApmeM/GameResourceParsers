@@ -160,10 +160,10 @@ MoveSpeed = 100.0
 MoveFloors = PoolIntArray( 2 )
 
 [node name=""Healthbar"" parent=""."" index=""0""]
-position = Vector2( 28, -41 )
+position = Vector2( 0, -20 )
 
 [node name=""AnimatedSprite"" parent=""."" index=""1""]
-position = Vector2( 0, -49 )
+position = Vector2( 0, 0 )
 frames = SubResource( {toConvert.AllSprites.Count + 1} )
 animation = ""StayBottom""
 centered = true

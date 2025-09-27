@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices;
 using System.Text;
 using SimpleTiled;
 
@@ -237,39 +236,39 @@ public class MisToTmxConverter : BaseFileConverter<BinaryFile>
                 klass == 57 ? map.TileSets.First(b => b.Name == $"cross").FirstGid :
                 klass == 58 && field2 == 0x1bu && state == 1 ? map.TileSets.First(b => b.Name == $"d_male").FirstGid + frame :
                 klass == 58 && field2 == 0x1bu && state == 2 ? map.TileSets.First(b => b.Name == $"d_fema").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 3 ? map.TileSets.First(b => b.Name == $"d_prie").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 4 ? map.TileSets.First(b => b.Name == $"d_buil").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 5 ? map.TileSets.First(b => b.Name == $"d_taxm").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 6 ? map.TileSets.First(b => b.Name == $"d_pike").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 7 ? map.TileSets.First(b => b.Name == $"d_foot").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 8 ? map.TileSets.First(b => b.Name == $"d_knig").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 9 ? map.TileSets.First(b => b.Name == $"d_wiza").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 11 ? map.TileSets.First(b => b.Name == $"d_oldm").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 12 ? map.TileSets.First(b => b.Name == $"d_oldw").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 13 ? map.TileSets.First(b => b.Name == $"d_kidm").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 14 ? map.TileSets.First(b => b.Name == $"d_kidf").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 16 ? map.TileSets.First(b => b.Name == $"d_cava").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 19 ? map.TileSets.First(b => b.Name == $"d_arch").FirstGid + frame :
-                klass == 58 && field2 == 0x1bu && state == 20 ? map.TileSets.First(b => b.Name == $"d_jest").FirstGid + frame :
+                klass == 58 && field2 == 0x1bu && state == 3 ? map.TileSets.First(b => b.Name == $"priest").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 4 ? map.TileSets.First(b => b.Name == $"builder").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 5 ? map.TileSets.First(b => b.Name == $"taxman").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 6 ? map.TileSets.First(b => b.Name == $"pikeman").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 7 ? map.TileSets.First(b => b.Name == $"footman").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 8 ? map.TileSets.First(b => b.Name == $"knight").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 9 ? map.TileSets.First(b => b.Name == $"wizard").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 11 ? map.TileSets.First(b => b.Name == $"oldMan").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 12 ? map.TileSets.First(b => b.Name == $"oldWoman").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 13 ? map.TileSets.First(b => b.Name == $"boy").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 14 ? map.TileSets.First(b => b.Name == $"girl").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 16 ? map.TileSets.First(b => b.Name == $"cavalier").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 19 ? map.TileSets.First(b => b.Name == $"archer").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x1bu && state == 20 ? map.TileSets.First(b => b.Name == $"minstrel").FirstGid + frame : // Dead
                 klass == 58 && field2 == 0x1bu && state == 32 ? map.TileSets.First(b => b.Name == $"d_groom").FirstGid + frame :
                 klass == 58 && field2 == 0x1bu && state == 33 ? map.TileSets.First(b => b.Name == $"d_bride").FirstGid + frame :
                 klass == 58 && field2 == 0x1Cu ? map.TileSets.First(b => b.Name == $"murd_wst").FirstGid + frame :
-                klass == 58 && field2 == 0x1Du ? map.TileSets.First(b => b.Name == $"zombdead").FirstGid + frame :
+                klass == 58 && field2 == 0x1Du ? map.TileSets.First(b => b.Name == $"zombie").FirstGid + frame : // Dead
                 klass == 58 && field2 == 0x1Eu ? map.TileSets.First(b => b.Name == $"cowchopm").FirstGid + frame :
                 klass == 58 && field2 == 0x1Fu ? map.TileSets.First(b => b.Name == $"cowplode").FirstGid + frame :
-                klass == 58 && field2 == 0x21u ? map.TileSets.First(b => b.Name == $"pikedie").FirstGid + frame :
-                klass == 58 && field2 == 0x22u ? map.TileSets.First(b => b.Name == $"footdie").FirstGid + frame :
-                klass == 58 && field2 == 0x23u ? map.TileSets.First(b => b.Name == $"flagdie").FirstGid + frame :
-                klass == 58 && field2 == 0x24u ? map.TileSets.First(b => b.Name == $"wizadie").FirstGid + frame :
+                klass == 58 && field2 == 0x21u ? map.TileSets.First(b => b.Name == $"pikeman").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x22u ? map.TileSets.First(b => b.Name == $"footman").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x23u ? map.TileSets.First(b => b.Name == $"flag").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x24u ? map.TileSets.First(b => b.Name == $"wizard").FirstGid + frame : // Dead
                 klass == 58 && field2 == 0x25u ? map.TileSets.First(b => b.Name == $"skeleton").FirstGid + frame :
-                klass == 58 && field2 == 0x62u && state == 23 ? map.TileSets.First(b => b.Name == $"wolfdead").FirstGid + frame :
-                klass == 58 && field2 == 0x62u && state != 23 ? map.TileSets.First(b => b.Name == $"darkdead").FirstGid + frame :
-                klass == 58 && field2 == 0x63u && state == 24 ? map.TileSets.First(b => b.Name == $"waspdead").FirstGid + frame :
-                klass == 58 && field2 == 0x63u && state != 24 ? map.TileSets.First(b => b.Name == $"bloodead").FirstGid + frame :
-                klass == 58 && field2 == 0x68u ? map.TileSets.First(b => b.Name == $"deadbat").FirstGid + frame :
-                klass == 58 && field2 == 0x69u ? map.TileSets.First(b => b.Name == $"giandead").FirstGid + frame :
-                klass == 58 && field2 == 0x71u ? map.TileSets.First(b => b.Name == $"ogredead").FirstGid + frame :
-                klass == 58 && field2 == 0x72u ? map.TileSets.First(b => b.Name == $"vampdead").FirstGid + frame :
+                klass == 58 && field2 == 0x62u && state == 23 ? map.TileSets.First(b => b.Name == $"wolf").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x62u && state != 23 ? map.TileSets.First(b => b.Name == $"darkWolf").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x63u && state == 24 ? map.TileSets.First(b => b.Name == $"wasp").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x63u && state != 24 ? map.TileSets.First(b => b.Name == $"bloodWasp").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x68u ? map.TileSets.First(b => b.Name == $"bat").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x69u ? map.TileSets.First(b => b.Name == $"giant").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x71u ? map.TileSets.First(b => b.Name == $"ogre").FirstGid + frame : // Dead
+                klass == 58 && field2 == 0x72u ? map.TileSets.First(b => b.Name == $"vampire").FirstGid + frame : // Dead
                 klass == 58 && field2 == 0x76u ? map.TileSets.First(b => b.Name == $"cowkill").FirstGid + frame :
                 klass == 58 && field2 == 0x77u ? map.TileSets.First(b => b.Name == $"cowdie").FirstGid + frame :
                 klass == 60 ? map.TileSets.First(b => b.Name == $"bench").FirstGid :
@@ -315,14 +314,14 @@ public class MisToTmxConverter : BaseFileConverter<BinaryFile>
                 klass == 98 ? map.TileSets.First(b => b.Name == $"owner").FirstGid : // + flag
                 klass == 99 ? map.TileSets.First(b => b.Name == $"pile05").FirstGid :
                 // +buzz disease, +aargh fire, +lantern night, 
-                klass == 103 && field2 == 0 && sex == 4 && !isGoing ? map.TileSets.First(b => b.Name == $"rp_still").FirstGid :
-                klass == 103 && field2 == 0 && sex == 4 && isGoing ? map.TileSets.First(b => b.Name == $"reparman").FirstGid :
-                klass == 103 && field2 == 0 && sex == 5 && !isGoing ? map.TileSets.First(b => b.Name == $"tx_still").FirstGid :
-                klass == 103 && field2 == 0 && sex == 5 && isGoing ? map.TileSets.First(b => b.Name == $"taxman").FirstGid :
+                klass == 103 && field2 == 0 && sex == 4 && !isGoing ? map.TileSets.First(b => b.Name == $"builder").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 4 && isGoing ? map.TileSets.First(b => b.Name == $"builder").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 5 && !isGoing ? map.TileSets.First(b => b.Name == $"taxman").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 5 && isGoing ? map.TileSets.First(b => b.Name == $"taxman").FirstGid : // Move
                 klass == 103 && field2 == 0 && sex == 17 ? map.TileSets.First(b => b.Name == $"bombman").FirstGid :
-                klass == 103 && field2 == 0 && sex == 3 && isFleeing ? map.TileSets.First(b => b.Name == $"fleeprie").FirstGid :
-                klass == 103 && field2 == 0 && sex == 3 && !isGoing ? map.TileSets.First(b => b.Name == $"pr_still").FirstGid :
-                klass == 103 && field2 == 0 && sex == 3 && isGoing ? map.TileSets.First(b => b.Name == $"priest").FirstGid :
+                klass == 103 && field2 == 0 && sex == 3 && isFleeing ? map.TileSets.First(b => b.Name == $"priest").FirstGid : // Other.fleeprie
+                klass == 103 && field2 == 0 && sex == 3 && !isGoing ? map.TileSets.First(b => b.Name == $"priest").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 3 && isGoing ? map.TileSets.First(b => b.Name == $"priest").FirstGid : // Move
                 klass == 103 && field2 == 0 && sex == 2 && isFleeing ? map.TileSets.First(b => b.Name == $"fleefema").FirstGid :
                 klass == 103 && field2 == 0 && sex == 2 && !isGoing ? map.TileSets.First(b => b.Name == $"f_still").FirstGid :
                 klass == 103 && field2 == 0 && sex == 2 && isGoing ? map.TileSets.First(b => b.Name == $"woman").FirstGid : // ~sackfema data8[0]=6, ~barlfema data8[0]=8, ~f_milk data[8]=0x13u
@@ -331,29 +330,30 @@ public class MisToTmxConverter : BaseFileConverter<BinaryFile>
                 klass == 103 && field2 == 0 && sex == 1 && isGoing ? map.TileSets.First(b => b.Name == $"villager").FirstGid : // ~sackmale data8[0]=6, m_barrel data8[0]=8
                 klass == 103 && field2 == 0 && sex == 32 ? map.TileSets.First(b => b.Name == $"m_weddin").FirstGid :
                 klass == 103 && field2 == 0 && sex == 33 ? map.TileSets.First(b => b.Name == $"f_weddin").FirstGid :
-                klass == 103 && field2 == 0 && sex == 11 ? map.TileSets.First(b => b.Name == $"elderm").FirstGid :
-                klass == 103 && field2 == 0 && sex == 12 ? map.TileSets.First(b => b.Name == $"elderf").FirstGid :
-                klass == 103 && field2 == 0 && sex == 13 && !isGoing ? map.TileSets.First(b => b.Name == $"boystill").FirstGid :
-                klass == 103 && field2 == 0 && sex == 13 && isGoing ? map.TileSets.First(b => b.Name == $"kidm").FirstGid :
-                klass == 103 && field2 == 0 && sex == 14 && !isGoing ? map.TileSets.First(b => b.Name == $"girlstil").FirstGid :
-                klass == 103 && field2 == 0 && sex == 14 && isGoing ? map.TileSets.First(b => b.Name == $"kidf").FirstGid :
-                klass == 103 && field2 == 0 && sex == 7 && !isGoing ? map.TileSets.First(b => b.Name == $"ft_still").FirstGid :
-                klass == 103 && field2 == 0 && sex == 7 && isGoing ? map.TileSets.First(b => b.Name == $"footwalk").FirstGid :
-                klass == 103 && field2 == 0 && sex == 8 && !isGoing ? map.TileSets.First(b => b.Name == $"kn_still").FirstGid :
-                klass == 103 && field2 == 0 && sex == 8 && isGoing ? map.TileSets.First(b => b.Name == $"knigwalk").FirstGid :
-                klass == 103 && field2 == 0 && sex == 19 && !isGoing ? map.TileSets.First(b => b.Name == $"arc_stil").FirstGid :
-                klass == 103 && field2 == 0 && sex == 19 && isGoing ? map.TileSets.First(b => b.Name == $"archer").FirstGid :
-                klass == 103 && field2 == 0 && sex == 20 && !isGoing ? map.TileSets.First(b => b.Name == $"minjuggl").FirstGid :
-                klass == 103 && field2 == 0 && sex == 20 && isGoing ? map.TileSets.First(b => b.Name == $"minstrel").FirstGid :
-                klass == 103 && field2 == 0 && sex == 21 && !isGoing ? map.TileSets.First(b => b.Name == $"mk_stil").FirstGid + 100 :
-                klass == 103 && field2 == 0 && sex == 21 && isGoing ? map.TileSets.First(b => b.Name == $"monkwalk").FirstGid :
-                klass == 103 && field2 == 0 && sex == 9 && !isGoing ? map.TileSets.First(b => b.Name == $"wz_still").FirstGid :
-                klass == 103 && field2 == 0 && sex == 9 && isGoing ? map.TileSets.First(b => b.Name == $"wizwalk").FirstGid :
-                klass == 103 && field2 == 0 && sex == 6 && !isGoing ? map.TileSets.First(b => b.Name == $"pk_still").FirstGid :
-                klass == 103 && field2 == 0 && sex == 6 && isGoing ? map.TileSets.First(b => b.Name == $"pikewalk").FirstGid :
-                klass == 103 && field2 == 0 && sex == 10 && !isGoing ? map.TileSets.First(b => b.Name == $"fg_still").FirstGid :
-                klass == 103 && field2 == 0 && sex == 10 && isGoing ? map.TileSets.First(b => b.Name == $"flagwalk").FirstGid :
-                klass == 103 && field2 == 0 && sex == 16 ? map.TileSets.First(b => b.Name == $"cavalier").FirstGid :
+                klass == 103 && field2 == 0 && sex == 11 ? map.TileSets.First(b => b.Name == $"oldMan").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 12 ? map.TileSets.First(b => b.Name == $"oldWoman").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 12 ? map.TileSets.First(b => b.Name == $"oldWoman").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 13 && !isGoing ? map.TileSets.First(b => b.Name == $"boy").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 13 && isGoing ? map.TileSets.First(b => b.Name == $"boy").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 14 && !isGoing ? map.TileSets.First(b => b.Name == $"girl").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 14 && isGoing ? map.TileSets.First(b => b.Name == $"girl").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 7 && !isGoing ? map.TileSets.First(b => b.Name == $"footman").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 7 && isGoing ? map.TileSets.First(b => b.Name == $"footman").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 8 && !isGoing ? map.TileSets.First(b => b.Name == $"knight").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 8 && isGoing ? map.TileSets.First(b => b.Name == $"knight").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 19 && !isGoing ? map.TileSets.First(b => b.Name == $"archer").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 19 && isGoing ? map.TileSets.First(b => b.Name == $"archer").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 20 && !isGoing ? map.TileSets.First(b => b.Name == $"minstrel").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 20 && isGoing ? map.TileSets.First(b => b.Name == $"minstrel").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 21 && !isGoing ? map.TileSets.First(b => b.Name == $"monk").FirstGid + 100 : // Still
+                klass == 103 && field2 == 0 && sex == 21 && isGoing ? map.TileSets.First(b => b.Name == $"monk").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 9 && !isGoing ? map.TileSets.First(b => b.Name == $"wizard").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 9 && isGoing ? map.TileSets.First(b => b.Name == $"wizard").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 6 && !isGoing ? map.TileSets.First(b => b.Name == $"pikeman").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 6 && isGoing ? map.TileSets.First(b => b.Name == $"pikeman").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 10 && !isGoing ? map.TileSets.First(b => b.Name == $"flag").FirstGid : // Still
+                klass == 103 && field2 == 0 && sex == 10 && isGoing ? map.TileSets.First(b => b.Name == $"flag").FirstGid : // Move
+                klass == 103 && field2 == 0 && sex == 16 ? map.TileSets.First(b => b.Name == $"cavalier").FirstGid : // Move
                 klass == 103 && field2 == 3 && sex == 1 ? map.TileSets.First(b => b.Name == $"cowchopm").FirstGid :
                 klass == 103 && field2 == 3 && sex == 2 ? map.TileSets.First(b => b.Name == $"cowchopf").FirstGid :
                 klass == 103 && field2 == 4 && sex == 1 ? map.TileSets.First(b => b.Name == $"m_chkill").FirstGid :
@@ -364,58 +364,58 @@ public class MisToTmxConverter : BaseFileConverter<BinaryFile>
                 klass == 103 && field2 == 6 && sex == 2 ? map.TileSets.First(b => b.Name == $"fharvest").FirstGid :
                 klass == 103 && field2 == 7 && sex == 1 ? map.TileSets.First(b => b.Name == $"mthrow").FirstGid :
                 klass == 103 && field2 == 7 && sex == 2 ? map.TileSets.First(b => b.Name == $"fthrow").FirstGid :
-                klass == 103 && field2 == 7 && sex == 6 ? map.TileSets.First(b => b.Name == $"pikeatta").FirstGid :
-                klass == 103 && field2 == 7 && sex == 7 ? map.TileSets.First(b => b.Name == $"footatta").FirstGid :
-                klass == 103 && field2 == 7 && sex == 8 ? map.TileSets.First(b => b.Name == $"knigatta").FirstGid :
-                klass == 103 && field2 == 7 && sex == 9 ? map.TileSets.First(b => b.Name == $"wizaim").FirstGid :
-                klass == 103 && field2 == 7 && sex == 16 ? map.TileSets.First(b => b.Name == $"cavatta").FirstGid :
-                klass == 103 && field2 == 7 && sex == 19 ? map.TileSets.First(b => b.Name == $"archshoo").FirstGid :
+                klass == 103 && field2 == 7 && sex == 6 ? map.TileSets.First(b => b.Name == $"pikeman").FirstGid : // Attack
+                klass == 103 && field2 == 7 && sex == 7 ? map.TileSets.First(b => b.Name == $"footman").FirstGid : // Attack
+                klass == 103 && field2 == 7 && sex == 8 ? map.TileSets.First(b => b.Name == $"knight").FirstGid : // Attack
+                klass == 103 && field2 == 7 && sex == 9 ? map.TileSets.First(b => b.Name == $"wizard").FirstGid : // Other.wizaim
+                klass == 103 && field2 == 7 && sex == 16 ? map.TileSets.First(b => b.Name == $"cavalier").FirstGid : // Attack
+                klass == 103 && field2 == 7 && sex == 19 ? map.TileSets.First(b => b.Name == $"archer").FirstGid : // Attack
                 klass == 103 && field2 == 9 && sex == 1 ? map.TileSets.First(b => b.Name == $"vpick").FirstGid :
-                klass == 103 && field2 == 9 && sex != 1 ? map.TileSets.First(b => b.Name == $"pick").FirstGid :
+                klass == 103 && field2 == 9 && sex != 1 ? map.TileSets.First(b => b.Name == $"builder").FirstGid : // Other.pick
                 klass == 103 && field2 == 10 && sex == 1 ? map.TileSets.First(b => b.Name == $"vsaw").FirstGid :
-                klass == 103 && field2 == 10 && sex != 1 ? map.TileSets.First(b => b.Name == $"saw").FirstGid :
+                klass == 103 && field2 == 10 && sex != 1 ? map.TileSets.First(b => b.Name == $"builder").FirstGid : // Other.saw
                 klass == 103 && field2 == 11 && sex == 4 ? map.TileSets.First(b => b.Name == $"hammer").FirstGid :
                 klass == 103 && field2 == 11 && sex != 4 ? map.TileSets.First(b => b.Name == $"manham").FirstGid :
                 klass == 103 && field2 == 12 && sex == 1 ? map.TileSets.First(b => b.Name == $"m_chop").FirstGid :
                 klass == 103 && field2 == 12 && sex != 1 ? map.TileSets.First(b => b.Name == $"f_chop").FirstGid :
-                klass == 103 && field2 == 13 ? map.TileSets.First(b => b.Name == $"pri_heal").FirstGid : // +healovr always, +lantern night, +flag data8[0]=15
-                klass == 103 && field2 == 14 ? map.TileSets.First(b => b.Name == $"wizcast").FirstGid :
+                klass == 103 && field2 == 13 ? map.TileSets.First(b => b.Name == $"priest").FirstGid : // Attack // +healovr always, +lantern night, +flag data8[0]=15
+                klass == 103 && field2 == 14 ? map.TileSets.First(b => b.Name == $"wizard").FirstGid : // Attack
                 klass == 103 && field2 == 93 ? map.TileSets.First(b => b.Name == $"milking").FirstGid :
                 klass == 104 && field2 == 7 && sex == 0xfu ? map.TileSets.First(b => b.Name == $"catfire").FirstGid :
                 klass == 104 && field2 != 7 && sex == 0xfu ? map.TileSets.First(b => b.Name == $"catapult").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x12u ? map.TileSets.First(b => b.Name == $"zombatta").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x12u ? map.TileSets.First(b => b.Name == $"zombie").FirstGid :
+                klass == 104 && field2 == 7 && sex == 0x12u ? map.TileSets.First(b => b.Name == $"zombie").FirstGid : // Attack
+                klass == 104 && field2 != 7 && sex == 0x12u ? map.TileSets.First(b => b.Name == $"zombie").FirstGid : // Move
                 klass == 104 && field2 == 7 && sex == 0x16u ? map.TileSets.First(b => b.Name == $"crossbow").FirstGid :
                 klass == 104 && field2 != 7 && sex == 0x16u ? map.TileSets.First(b => b.Name == $"crossbow").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x17u ? map.TileSets.First(b => b.Name == $"wolfatta").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x17u && isGoing ? map.TileSets.First(b => b.Name == $"wolf").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x17u && !isGoing ? map.TileSets.First(b => b.Name == $"wolfstil").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x18u ? map.TileSets.First(b => b.Name == $"waspat").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x18u ? map.TileSets.First(b => b.Name == $"wasp").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x19u ? map.TileSets.First(b => b.Name == $"batatta").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x19u ? map.TileSets.First(b => b.Name == $"bat").FirstGid :
+                klass == 104 && field2 == 7 && sex == 0x17u ? map.TileSets.First(b => b.Name == $"wolf").FirstGid : // Attack
+                klass == 104 && field2 != 7 && sex == 0x17u && isGoing ? map.TileSets.First(b => b.Name == $"wolf").FirstGid : // Move
+                klass == 104 && field2 != 7 && sex == 0x17u && !isGoing ? map.TileSets.First(b => b.Name == $"wolf").FirstGid : // Still
+                klass == 104 && field2 == 7 && sex == 0x18u ? map.TileSets.First(b => b.Name == $"wasp").FirstGid : // Attack
+                klass == 104 && field2 != 7 && sex == 0x18u ? map.TileSets.First(b => b.Name == $"wasp").FirstGid : // Still
+                klass == 104 && field2 == 7 && sex == 0x19u ? map.TileSets.First(b => b.Name == $"bat").FirstGid : // Attack
+                klass == 104 && field2 != 7 && sex == 0x19u ? map.TileSets.First(b => b.Name == $"bat").FirstGid : // Move
                 klass == 104 && field2 == 7 && sex == 0x1Au ? map.TileSets.First(b => b.Name == $"fiend").FirstGid :
                 klass == 104 && field2 != 7 && sex == 0x1Au ? map.TileSets.First(b => b.Name == $"fiend").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x1Bu ? map.TileSets.First(b => b.Name == $"gianatt").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x1Bu && isGoing ? map.TileSets.First(b => b.Name == $"giant").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x1Bu && !isGoing ? map.TileSets.First(b => b.Name == $"gianstil").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x1Cu ? map.TileSets.First(b => b.Name == $"bldsting").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x1Cu ? map.TileSets.First(b => b.Name == $"bloodwsp").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x1Du ? map.TileSets.First(b => b.Name == $"dw_attak").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x1Du && isGoing ? map.TileSets.First(b => b.Name == $"dw_walk").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x1Du && !isGoing ? map.TileSets.First(b => b.Name == $"dw_still").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x1Eu ? map.TileSets.First(b => b.Name == $"ogreatta").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x1Eu && isGoing ? map.TileSets.First(b => b.Name == $"ogrewalk").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x1Eu && !isGoing ? map.TileSets.First(b => b.Name == $"ogrestil").FirstGid :
-                klass == 104 && field2 == 7 && sex == 0x1Fu ? map.TileSets.First(b => b.Name == $"vampbat").FirstGid :
-                klass == 104 && field2 != 7 && sex == 0x1Fu ? map.TileSets.First(b => b.Name == $"vampstil").FirstGid :
+                klass == 104 && field2 == 7 && sex == 0x1Bu ? map.TileSets.First(b => b.Name == $"giant").FirstGid : // Attack
+                klass == 104 && field2 != 7 && sex == 0x1Bu && isGoing ? map.TileSets.First(b => b.Name == $"giant").FirstGid : // Move
+                klass == 104 && field2 != 7 && sex == 0x1Bu && !isGoing ? map.TileSets.First(b => b.Name == $"giant").FirstGid : // Still
+                klass == 104 && field2 == 7 && sex == 0x1Cu ? map.TileSets.First(b => b.Name == $"bloodWasp").FirstGid : // Attack
+                klass == 104 && field2 != 7 && sex == 0x1Cu ? map.TileSets.First(b => b.Name == $"bloodWasp").FirstGid : // Move
+                klass == 104 && field2 == 7 && sex == 0x1Du ? map.TileSets.First(b => b.Name == $"darkWolf").FirstGid : // Attack
+                klass == 104 && field2 != 7 && sex == 0x1Du && isGoing ? map.TileSets.First(b => b.Name == $"darkWolf").FirstGid : // Move
+                klass == 104 && field2 != 7 && sex == 0x1Du && !isGoing ? map.TileSets.First(b => b.Name == $"darkWolf").FirstGid : // Still
+                klass == 104 && field2 == 7 && sex == 0x1Eu ? map.TileSets.First(b => b.Name == $"ogre").FirstGid : // Attack
+                klass == 104 && field2 != 7 && sex == 0x1Eu && isGoing ? map.TileSets.First(b => b.Name == $"ogre").FirstGid : // Move
+                klass == 104 && field2 != 7 && sex == 0x1Eu && !isGoing ? map.TileSets.First(b => b.Name == $"ogre").FirstGid : // Still
+                klass == 104 && field2 == 7 && sex == 0x1Fu ? map.TileSets.First(b => b.Name == $"vampire").FirstGid : // Move
+                klass == 104 && field2 != 7 && sex == 0x1Fu ? map.TileSets.First(b => b.Name == $"vampire").FirstGid : // Still
                 klass == 108 ? map.TileSets.First(b => b.Name == $"zombie").FirstGid :
                 klass == 110 ? map.TileSets.First(b => b.Name == $"cowwalk").FirstGid :
                 klass == 111 ? map.TileSets.First(b => b.Name == $"chikfeld").FirstGid : //+chicken, chickegg field2==92
                                                                                          // klass == 113 ? map.TileSets.First(b => b.Name == $"peashut").FirstGid : // vpick?
-                klass == 114 ? map.TileSets.First(b => b.Name == $"pick").FirstGid + state :
-                klass == 115 ? map.TileSets.First(b => b.Name == $"saw").FirstGid + state :
-                // klass == 116 ? map.TileSets.First(b => b.Name == $"saw").FirstGid : // vsaw?
+                klass == 114 ? map.TileSets.First(b => b.Name == $"builder").FirstGid + state : // Other.pick
+                klass == 115 ? map.TileSets.First(b => b.Name == $"builder").FirstGid + state : // Other.saw
+                // klass == 116 ? map.TileSets.First(b => b.Name == $"builder").FirstGid : // Other.saw/vsaw?
                 klass == 117 ? map.TileSets.First(b => b.Name == $"bakery").FirstGid :
                 klass == 118 ? map.TileSets.First(b => b.Name == $"well").FirstGid :
                 klass == 119 ? map.TileSets.First(b => b.Name == $"farm").FirstGid :
@@ -466,7 +466,7 @@ public class MisToTmxConverter : BaseFileConverter<BinaryFile>
                 klass == 170 ? map.TileSets.First(b => b.Name == $"gate").FirstGid :
                 klass == 171 ? map.TileSets.First(b => b.Name == $"crate").FirstGid :
                 klass == 172 ? map.TileSets.First(b => b.Name == $"gob_gold").FirstGid + 100 :
-                klass == 173 ? map.TileSets.First(b => b.Name == $"flag").FirstGid + 100 :
+                klass == 173 ? map.TileSets.First(b => b.Name == $"flag").FirstGid + 100 : // Move
                 klass == 174 ? map.TileSets.First(b => b.Name == $"holyswrd").FirstGid + 100 :
                 klass == 175 ? map.TileSets.First(b => b.Name == $"summon").FirstGid :
                 klass == 176 ? map.TileSets.First(b => b.Name == $"tablets").FirstGid + frame : //~crate frame>0x20u
@@ -593,7 +593,7 @@ public class MisToTmxConverter : BaseFileConverter<BinaryFile>
                 {"helmet", 4},
                 {"holyswrd", 4},
                 {"magring", 4},
-                {"mk_stil", 4},
+                {"monk", 4},
                 {"mkey", 4},
                 {"pot_blue", 5},
                 {"pot_gren", 5},

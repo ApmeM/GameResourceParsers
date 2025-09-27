@@ -72,7 +72,7 @@ public class SpriteDescriptionFile : BaseFile
         .Concat(AttackBottomRight)
         .ToList();
 
-    public float DieFPS = 5;
+    public float DieLength = 5;
     public List<Description> DieLeft = new List<Description>();
     public List<Description> DieTopLeft = new List<Description>();
     public List<Description> DieBottomLeft = new List<Description>();

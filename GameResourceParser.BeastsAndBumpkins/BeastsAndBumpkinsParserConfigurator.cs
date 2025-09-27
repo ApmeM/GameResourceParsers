@@ -8,6 +8,7 @@
             new BoxUnpackConverter(),
             new MfbToImageConverter(),
             new M10ToWavConverter(),
+            new MergeKnownSpritesConverter(),
             new MisToTmxConverter(),
 
             new SaveSpriteToSeparateImageConverter(outputFileDirectory),
